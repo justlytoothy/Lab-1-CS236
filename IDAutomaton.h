@@ -10,20 +10,30 @@
 #include <ctype.h>
 class IDAutomaton : public Automaton {
 private:
-
-    void s0() {
-        if (isalpha(curr())) {
-            next();
-            s1();
+    bool isSpecial() {
+        if (matchText("Facts") || matchText("Queries") || matchText("Rules") || matchText("Schemes")) {
+            return true;
         }
-        else
+        else {
+            return false;
+        }
+    }
+    void s0() {
+        if (isSpecial()) {
             sError();
+        } else {
+            if (isalpha(curr())) {
+                next();
+                s1();
+            } else {
+                sError();
+            }
+        }
+
     }
     void s1() {
-            if (matchText("Facts") || matchText("Queries") || matchText("Rules")) {
-                return;
-            }
-            else {
+        if (!endOfFile()) {
+            if (!isSpecial()) {
                 if (isalnum(curr())) {
                     next();
                     s1();
@@ -31,6 +41,13 @@ private:
                     return; //accept
                 }
             }
+            else {
+                return;
+            }
+        }
+        else {
+            return;
+        }
     }
 public:
     IDAutomaton() {

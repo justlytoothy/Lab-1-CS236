@@ -52,8 +52,8 @@ protected:
         }
     }
     bool matchText(string c) {
-        if (input.size() <= c.size()) {
-            string temp = input.substr(currCharIndex, currCharIndex + c.size()-1);
+        if (c.size() <= input.size() - currCharIndex + 1) {
+            string temp = input.substr(currCharIndex, c.size());
             return (temp == c);
         }
         else {

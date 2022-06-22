@@ -2,6 +2,6 @@
 int main() {
 
     Lexer lexer;
-    lexer.run("#|#yuhg$|hello thFactsere     |##|#| big comment right here ''''::::-|#");
+    lexer.run("#|#yuhg$|hello there     |##|#| big comment right here ''''::::-|#tFactstgRulestgQuerieshoSchemes");
     return 0;
 }
