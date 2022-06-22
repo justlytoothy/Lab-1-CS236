@@ -36,9 +36,15 @@ protected:
     char curr() {
         return input.at(currCharIndex);
     }
+    char peekOne() {
+        return input.at(currCharIndex + 1);
+    }
 
     bool match(char c) {
         return (curr() == c);
+    }
+    bool matchNext(char c) {
+        return (peekOne() == c);
     }
 
     // Call this function to check if you have reached the end of file

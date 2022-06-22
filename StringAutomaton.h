@@ -22,6 +22,11 @@ private:
     }
     void s1()
     {
+        if (match('\'') && matchNext(('\''))) {
+            next();
+            next();
+            s1();
+        }
         if (!match('\''))
         {
             next();
@@ -30,14 +35,7 @@ private:
         else
         {
             next();
-            if (match('#')) {
-                next();
-                return;
-            }
-            else {
-                next();
-                s1();
-            }
+            return;
         } // this calls the error state
     }
 
