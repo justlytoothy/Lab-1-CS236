@@ -32,6 +32,12 @@ protected:
         numCharRead++;
         currCharIndex++;
     }
+    void zero() {
+        if (curr() == '\n')
+            newLinesRead++;
+        numCharRead++;
+        currCharIndex++;
+    }
 
     char curr() {
         return input.at(currCharIndex);
@@ -66,6 +72,7 @@ protected:
     bool endOfFile() {
         return (currCharIndex >= input.size());
     }
+
     bool peekEndOfFile() {
         return (currCharIndex + 1 >= input.size());
     }

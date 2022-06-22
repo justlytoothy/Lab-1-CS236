@@ -40,6 +40,7 @@ public:
     }
     void initializeAutomata() {
         automata.push_back(new EndOfFileAutomaton());
+
         automata.push_back(new BlockCommentAutomaton());
         automata.push_back(new LineCommentAutomaton());
         automata.push_back(new StringAutomaton());
@@ -59,12 +60,12 @@ public:
         automata.push_back(new IDAutomaton());
         automata.push_back(new UndefinedCharAutomaton());
     }
-    vector<Token> run(string input) {
+    vector<Token> run(string input, unsigned int line) {
         this->initializeAutomata();
 
         while(input.size() > 0) {
             while (isspace(input.at(0))) {
-                input = input.substr(1);
+                input.erase(0,1);
             }
             Automaton *maxAutomaton = automata.at(0);
             unsigned int maxRead = 0;
@@ -75,10 +76,13 @@ public:
                 if (currentAutomaton->run(input) > maxRead) {
                     maxRead = currentAutomaton->run(input);
                     maxAutomaton = currentAutomaton;
+
                 }
+
+
             }
 
-            Token currToken = Token(maxAutomaton->getType(), input.substr(0, maxRead), maxAutomaton->getNewLines());
+            Token currToken = Token(maxAutomaton->getType(), input.substr(0, maxRead), line);
             cout << currToken.toString() << endl;
             input = input.substr(maxRead);
             tokens.push_back(currToken);

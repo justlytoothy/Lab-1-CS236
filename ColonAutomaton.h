@@ -7,17 +7,20 @@
 #include "Automaton.h"
 class ColonAutomaton : public Automaton {
 private:
+    void s0()
+    {
 
-    void s0() {
-
-        if (match(':')) {
-
+        if (match(':'))
+        {
             next();
             return; // this represents accepting the input
         }
         else
-            sError(); // this calls the error state
+        {
+            sError();
+        } // this calls the error state
     }
+
 public:
     ColonAutomaton() {
         type = TokenType::COLON; // set the type

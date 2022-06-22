@@ -11,58 +11,14 @@ class FactsAutomaton : public Automaton
 private:
     void s0()
     {
-        if (match('F'))
+        if (matchText("Facts"))
         {
             next();
-            s1();
-        }
-        else
-        {
-            sError();
-        } // this calls the error state
-    }
-    void s1()
-    {
-        if (match('a'))
-        {
             next();
-            s2(); // this represents accepting the input
-        }
-        else
-        {
-            sError();
-        } // this calls the error state
-    }
-    void s2()
-    {
-        if (match('c'))
-        {
             next();
-            s3(); // this represents accepting the input
-        }
-        else
-        {
-            sError();
-        } // this calls the error state
-    }
-    void s3()
-    {
-        if (match('t'))
-        {
             next();
-            s4(); // this represents accepting the input
-        }
-        else
-        {
-            sError();
-        } // this calls the error state
-    }
-    void s4()
-    {
-        if (match('s'))
-        {
             next();
-            return; // this represents accepting the input
+            return;
         }
         else
         {
