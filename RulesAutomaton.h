@@ -10,13 +10,57 @@ class RulesAutomaton : public Automaton
 private:
     void s0()
     {
-        if (match(','))
+        if (match('R'))
         {
             next();
-            return; // this represents accepting the input
+            s1();
         }
         else
         {
+            sError();
+        } // this calls the error state
+    }
+    void s1()
+    {
+        if (match('u'))
+        {
+            next();
+            s2(); // this represents accepting the input
+        }
+        else
+        {
+            sError();
+        } // this calls the error state
+    }
+    void s2()
+    {
+        if (match('l'))
+        {
+            next();
+            s3(); // this represents accepting the input
+        }
+        else
+        {
+            sError();
+        } // this calls the error state
+    }
+    void s3()
+    {
+        if (match('e'))
+        {
+            next();
+            s4(); // this represents accepting the input
+        }
+        else
+        {
+            sError();
+        } // this calls the error state
+    }
+    void s4() {
+        if (match('s')) {
+            next();
+            return; // this represents accepting the input
+        } else {
             sError();
         } // this calls the error state
     }

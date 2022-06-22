@@ -2,6 +2,6 @@
 int main() {
 
     Lexer lexer;
-    lexer.run("Fact#|hellothere12345|#:$:-?\() 'this is a test    '    Queriesel(lo:Facts:-FactsLo,.");
+    lexer.run("#|#yuhg$|hello thFactsere     |##|#| big comment right here ''''::::-|#");
     return 0;
 }

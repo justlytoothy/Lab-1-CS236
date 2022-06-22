@@ -2,21 +2,23 @@
 // Created by Jake Schilling on 6/21/22.
 //
 
-#ifndef LAB1_COMMENTAUTOMATON_H
-#define LAB1_COMMENTAUTOMATON_H
+#ifndef LAB1_LINECOMMENTAUTOMATON_H
+#define LAB1_LINECOMMENTAUTOMATON_H
 #include "Automaton.h"
-class CommentAutomaton : public Automaton
+class LineCommentAutomaton : public Automaton
 {
     //Make terminate if reaches end of file with no closing tag
 private:
     void s0()
     {
-        if (match('#'))
+        if (match('#') && !peekEndOfFile())
         {
-            next();
-            if (match('|')) {
+            if (!matchText("#|")) {
                 next();
                 s1();
+            }
+            else {
+                sError();
             }
         }
         else
@@ -26,14 +28,7 @@ private:
     }
     void s1()
     {
-        if (!match('|'))
-        {
-            next();
-            s1(); // this represents accepting the input
-        }
-        else
-        {
-            next();
+        if (!endOfFile()) {
             if (match('#')) {
                 next();
                 return;
@@ -42,13 +37,19 @@ private:
                 next();
                 s1();
             }
-        } // this calls the error state
+        }
+        else {
+            sError();
+        }
     }
 
+
 public:
-    CommentAutomaton()
+    LineCommentAutomaton()
     {
         type = TokenType::COMMENT; // set the type
     }
 };
-#endif // LAB1_COMMENTAUTOMATON_H
+#endif // LAB1_LINECOMMENTAUTOMATON_H
+
+

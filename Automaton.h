@@ -44,13 +44,32 @@ protected:
         return (curr() == c);
     }
     bool matchNext(char c) {
-        return (peekOne() == c);
+        if (endOfFile()) {
+            return false;
+        }
+        else {
+            return (peekOne() == c);
+        }
     }
+    bool matchText(string c) {
+        if (input.size() <= c.size()) {
+            string temp = input.substr(currCharIndex, currCharIndex + c.size()-1);
+            return (temp == c);
+        }
+        else {
+            return false;
+        }
+    }
+
 
     // Call this function to check if you have reached the end of file
     bool endOfFile() {
         return (currCharIndex >= input.size());
     }
+    bool peekEndOfFile() {
+        return (currCharIndex + 1 >= input.size());
+    }
+
 
     // This is the error state call it when the token is invalid
     void sError() {

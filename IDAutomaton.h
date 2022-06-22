@@ -13,7 +13,6 @@ private:
 
     void s0() {
         if (isalpha(curr())) {
-            checkMe+=curr();
             next();
             s1();
         }
@@ -21,24 +20,21 @@ private:
             sError();
     }
     void s1() {
-        if (checkMe == "Facts" || checkMe == "Queries" || checkMe == "Rules") {
-            checkMe = "";
-            sError();
-        }
-        if (isalnum(curr())) {
-            checkMe+=curr();
-            next();
-            s1();
-        }
-        else {
-            checkMe = "";
-            return; //accept
-        }
+            if (matchText("Facts") || matchText("Queries") || matchText("Rules")) {
+                return;
+            }
+            else {
+                if (isalnum(curr())) {
+                    next();
+                    s1();
+                } else {
+                    return; //accept
+                }
+            }
     }
 public:
     IDAutomaton() {
         type = TokenType::ID; // set the type
     }
-    string checkMe = "";
 };
 #endif //LAB1_IDAUTOMATON_H

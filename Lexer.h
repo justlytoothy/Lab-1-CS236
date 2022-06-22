@@ -17,13 +17,18 @@
 #include "UndefinedCharAutomaton.h"
 #include "EndOfFileAutomaton.h"
 #include "PeriodAutomaton.h"
-#include "CommentAutomaton.h"
+#include "BlockCommentAutomaton.h"
+#include "LineCommentAutomaton.h"
 #include "LeftParenAutomaton.h"
 #include "RightParenAutomaton.h"
 #include "QMarkAutomaton.h"
 #include "FactsAutomaton.h"
 #include "QueriesAutomaton.h"
 #include "StringAutomaton.h"
+#include "AddAutomaton.h"
+#include "MultiplyAutomaton.h"
+#include "SchemesAutomaton.h"
+#include "RulesAutomaton.h"
 
 class Lexer {
 private:
@@ -35,8 +40,11 @@ public:
     }
     void initializeAutomata() {
         automata.push_back(new EndOfFileAutomaton());
-        automata.push_back(new CommentAutomaton());
+        automata.push_back(new BlockCommentAutomaton());
+        automata.push_back(new LineCommentAutomaton());
         automata.push_back(new StringAutomaton());
+        automata.push_back(new AddAutomaton());
+        automata.push_back(new MultiplyAutomaton());
         automata.push_back(new LeftParenAutomaton());
         automata.push_back(new RightParenAutomaton());
         automata.push_back(new QMarkAutomaton());
@@ -46,6 +54,8 @@ public:
         automata.push_back(new CommaAutomaton());
         automata.push_back(new FactsAutomaton());
         automata.push_back(new QueriesAutomaton());
+        automata.push_back(new SchemesAutomaton());
+        automata.push_back(new RulesAutomaton());
         automata.push_back(new IDAutomaton());
         automata.push_back(new UndefinedCharAutomaton());
     }
