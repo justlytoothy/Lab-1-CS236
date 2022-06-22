@@ -4,7 +4,7 @@
 
 #ifndef LAB1_SCHEMESAUTOMATON_H
 #define LAB1_SCHEMESAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class SchemesAutomaton : public Automaton
 {
     ///////FINNISH

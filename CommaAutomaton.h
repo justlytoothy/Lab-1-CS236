@@ -4,7 +4,7 @@
 
 #ifndef LAB1_COMMAAUTOMATON_H
 #define LAB1_COMMAAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class CommaAutomaton : public Automaton {
 private:
 

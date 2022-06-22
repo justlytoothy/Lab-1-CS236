@@ -4,7 +4,7 @@
 
 #ifndef LAB1_QUERIESAUTOMATON_H
 #define LAB1_QUERIESAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class QueriesAutomaton : public Automaton
 {
     ///////Not Done!

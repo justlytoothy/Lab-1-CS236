@@ -4,7 +4,7 @@
 
 #ifndef LAB1_ENDOFFILEAUTOMATON_H
 #define LAB1_ENDOFFILEAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class EndOfFileAutomaton : public Automaton
 {
 private:

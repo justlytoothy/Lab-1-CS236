@@ -4,7 +4,7 @@
 
 #ifndef LAB1_RULESAUTOMATON_H
 #define LAB1_RULESAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class RulesAutomaton : public Automaton
 {
 private:

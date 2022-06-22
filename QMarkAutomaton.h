@@ -4,7 +4,7 @@
 
 #ifndef LAB1_QMARKAUTOMATON_H
 #define LAB1_QMARKAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class QMarkAutomaton : public Automaton
 {
 private:

@@ -4,7 +4,7 @@
 
 #ifndef LAB1_LEFTPARENAUTOMATON_H
 #define LAB1_LEFTPARENAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class LeftParenAutomaton : public Automaton
 {
 private:

@@ -4,7 +4,7 @@
 
 #ifndef LAB1_RIGHTPARENAUTOMATON_H
 #define LAB1_RIGHTPARENAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class RightParenAutomaton : public Automaton {
 private:
 

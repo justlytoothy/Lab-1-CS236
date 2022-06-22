@@ -4,7 +4,7 @@
 
 #ifndef LAB1_COMMENTAUTOMATON_H
 #define LAB1_COMMENTAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class CommentAutomaton : public Automaton
 {
     //Make terminate if reaches end of file with no closing tag

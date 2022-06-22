@@ -23,6 +23,7 @@
 #include "QMarkAutomaton.h"
 #include "FactsAutomaton.h"
 #include "QueriesAutomaton.h"
+#include "StringAutomaton.h"
 
 class Lexer {
 private:
@@ -35,6 +36,7 @@ public:
     void initializeAutomata() {
         automata.push_back(new EndOfFileAutomaton());
         automata.push_back(new CommentAutomaton());
+        automata.push_back(new StringAutomaton());
         automata.push_back(new LeftParenAutomaton());
         automata.push_back(new RightParenAutomaton());
         automata.push_back(new QMarkAutomaton());

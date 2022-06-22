@@ -4,7 +4,7 @@
 
 #ifndef LAB1_MULTIPLYAUTOMATON_H
 #define LAB1_MULTIPLYAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class MultiplyAutomaton : public Automaton
 {
 private:

@@ -4,20 +4,40 @@
 
 #ifndef LAB1_STRINGAUTOMATON_H
 #define LAB1_STRINGAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class StringAutomaton : public Automaton
 {
 private:
     void s0()
     {
-        if (match(','))
+        if (match('\''))
         {
             next();
-            return; // this represents accepting the input
+            s1();
         }
         else
         {
             sError();
+        } // this calls the error state
+    }
+    void s1()
+    {
+        if (!match('\''))
+        {
+            next();
+            s1(); // this represents accepting the input
+        }
+        else
+        {
+            next();
+            if (match('#')) {
+                next();
+                return;
+            }
+            else {
+                next();
+                s1();
+            }
         } // this calls the error state
     }
 

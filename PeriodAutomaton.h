@@ -4,7 +4,7 @@
 
 #ifndef LAB1_PERIODAUTOMATON_H
 #define LAB1_PERIODAUTOMATON_H
-#import "Automaton.h"
+#include "Automaton.h"
 class PeriodAutomaton : public Automaton
 {
 private:
