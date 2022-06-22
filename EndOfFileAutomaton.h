@@ -13,6 +13,7 @@ private:
         if (endOfFile())
         {
             next();
+            cout << "EOF" << endl;
             return; // this represents accepting the input
         }
         else

@@ -71,6 +71,7 @@ public:
             //Handle Whitespace later here
             for (unsigned int i = 0; i < automata.size(); i++) {
                 Automaton *currentAutomaton = automata.at(i);
+
                 if (currentAutomaton->run(input) > maxRead) {
                     maxRead = currentAutomaton->run(input);
                     maxAutomaton = currentAutomaton;
